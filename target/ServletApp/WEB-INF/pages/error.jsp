@@ -6,4 +6,5 @@
 <body>
     <h1>Page not found</h1>
 </body>
+<jsp:include page="../templates/footer.jsp"></jsp:include>
 </html>

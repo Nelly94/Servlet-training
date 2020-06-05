@@ -20,10 +20,10 @@ public class UserDAO {
         return users.get(id);
     }
 
-    public List<String> getUsers(){
-        List<String> usersList = new ArrayList<>();
+    public List<User> getUsers(){
+        List<User> usersList = new ArrayList<>();
         for(String key : users.keySet()){
-            usersList.add(key);
+            usersList.add(users.get(key));
         }
         return usersList;
     }

@@ -6,4 +6,5 @@
 <body>
     <h1>Hello, ${user.fullName}! Your current salary is ${user.salary}</h1>
 </body>
+<jsp:include page="../templates/footer.jsp"></jsp:include>
 </html>

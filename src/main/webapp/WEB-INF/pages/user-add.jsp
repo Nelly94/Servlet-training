@@ -20,4 +20,5 @@
         <button type="submit">OK</button>
     </form>
 </body>
+<jsp:include page="../templates/footer.jsp"></jsp:include>
 </html>

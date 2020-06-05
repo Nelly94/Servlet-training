@@ -34,7 +34,7 @@ public class UserServlet extends HttpServlet {
             request.setAttribute("user", user);
             request.getRequestDispatcher("/WEB-INF/pages/user-detail.jsp").forward(request,response);
         }else if("list".equals(action)) {
-            List<String> usersList = userDao.getUsers();
+            List<User> usersList = userDao.getUsers();
             request.setAttribute("usersList", usersList);
             request.getRequestDispatcher("/WEB-INF/pages/user-list.jsp").forward(request, response);
         }else if("add".equals(action)){
