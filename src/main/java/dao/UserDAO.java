@@ -27,4 +27,8 @@ public class UserDAO {
         }
         return usersList;
     }
+
+    public void addUser(User user){
+        users.put(user.getFirstname(), user);
+    }
 }

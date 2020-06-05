@@ -13,24 +13,32 @@ import java.util.List;
 
 @WebServlet(value = "/user")
 public class UserServlet extends HttpServlet {
+
+    public  UserDAO userDao = new UserDAO();
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        User newUser = new User(request.getParameter("firstname"), request.getParameter("lastname"), Integer.parseInt(request.getParameter("salary")));
+        userDao.addUser(newUser);
+        response.sendRedirect(request.getContextPath() + "/user?action=list");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //response.getWriter().println("<h1 style=\"color:red\">Hi there</h1>");
 
-        UserDAO userDao = new UserDAO();
+        //UserDAO userDao = new UserDAO();
         String action = request.getParameter("action");
 
         if("detail".equals(action)){
             User user = userDao.findUser(request.getParameter("id"));
             request.setAttribute("user", user);
-            request.getRequestDispatcher("/WEB-INF/pages/userDetail.jsp").forward(request,response);
-        }else if("list".equals(action)){
+            request.getRequestDispatcher("/WEB-INF/pages/user-detail.jsp").forward(request,response);
+        }else if("list".equals(action)) {
             List<String> usersList = userDao.getUsers();
             request.setAttribute("usersList", usersList);
-            request.getRequestDispatcher("/WEB-INF/pages/userList.jsp").forward(request,response);
+            request.getRequestDispatcher("/WEB-INF/pages/user-list.jsp").forward(request, response);
+        }else if("add".equals(action)){
+            request.getRequestDispatcher("/WEB-INF/pages/user-add.jsp").forward(request,response);
         }else{
             //Error
             response.sendRedirect(request.getContextPath() + "/error");
