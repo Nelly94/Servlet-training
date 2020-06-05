@@ -8,4 +8,22 @@
         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
         id="YourWebAppID"
         version="2.5">
+
+    <session-config>
+        <session-timeout>15</session-timeout>
+    </session-config>
+
+    <filter>
+        <filter-name>loginFilter</filter-name>
+        <filter-class>com.myapp.servlet.filter.LoginFilter</filter-class>
+
+        <init-param>
+            <param-name>error_page</param-name>
+            <param-value>../WEB-INF/pages/header.jsp</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>loginFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

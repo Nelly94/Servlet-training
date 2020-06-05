@@ -29,6 +29,7 @@ public class LoginServlet extends HttpServlet {
                 //Create session
                 HttpSession session = request.getSession();
                 session.setAttribute("login", login);
+                session.setAttribute("logged", true);
                 response.sendRedirect(request.getContextPath() + "/user?action=list");
             }
         }else if("add".equals(request.getParameter("action"))){
