@@ -31,4 +31,8 @@ public class LoginDAO {
     public void addLogin(Login login){
         logins.put(login.getEmail(), login);
     }
+
+    public void removeLogin(Login login){
+        logins.remove(login.getEmail());
+    }
 }

@@ -54,7 +54,7 @@ public class LoginServlet extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/pages/header.jsp").forward(request, response);
 
         }else if("remove".equals(action)){
-            loginDAO.getLogins().remove(request.getSession().getAttribute("login"));
+            loginDAO.removeLogin((Login) request.getSession().getAttribute("login"));
             HttpSession session = request.getSession();
             session.invalidate();
             response.sendRedirect(request.getContextPath() + "/login?action=login");
