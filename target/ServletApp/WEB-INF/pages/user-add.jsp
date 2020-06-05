@@ -4,7 +4,15 @@
     <title>Add user</title>
 </head>
 <body>
-    <form method="post">
+    <c:url var="postUserUrl" value="/user"/>
+    <ul>
+        <li>PageScope: ${pageScope.postUserUrl}</li>
+        <li>PageScope: ${pageScope.postUserUrl}</li>
+        <li>PageScope: ${pageScope.postUserUrl}</li>
+        <li>PageScope: ${pageScope.postUserUrl}</li>
+    </ul>
+
+    <form action="${postUserUrl}" method="post">
         <label>First name:</label>
         <input type="text" name="firstname">
         <br>
